@@ -321,7 +321,7 @@ const $send_button = document.querySelector('.send-button');
             document.querySelector('#file_format_icon__pdf_file').classList.add('active');
             document.querySelector('#file_format_icon__unknown_file').classList.add('hidden');
             const startTime = new Date();
-            fetch('http://localhost:3000/pdf-file', {
+            fetch('https://backend-apollon.vercel.app/pdf-file', {
                 method: 'POST',
                 body: formData,
               })
@@ -446,7 +446,7 @@ sendButton.addEventListener('click', () => {
     }
     if(checkName && checkEmail && checkDate && checkContent){
         if(emailValue === ''){
-            fetch('http://localhost:3000/user', {
+            fetch('https://backend-apollon.vercel.app/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -463,7 +463,7 @@ sendButton.addEventListener('click', () => {
             .then(response => response.json())
             .then(data =>{
                 if(data.is_valid_format && data.deliverability === "DELIVERABLE"){
-                    fetch('http://localhost:3000/user', {
+                    fetch('https://backend-apollon.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
