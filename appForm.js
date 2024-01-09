@@ -469,7 +469,7 @@ sendButton.addEventListener('click', () => {
             })
             .catch(error => console.error('Error:', error));
         }else{
-            fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=abff934b1401422483bbe486f07aca2f&email=${emailValue}`)
+            fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=552cedc4ff1549db8e2cfdfa1efbc9cd&email=${emailValue}`)
             .then(response => response.json())
             .then(data =>{
                 if(data.is_valid_format && data.deliverability === "DELIVERABLE"){
