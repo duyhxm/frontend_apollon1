@@ -401,26 +401,33 @@ const $send_button = document.querySelector('.send-button');
 
 let processing = false;
 const sendButton = document.querySelector(".send-button");
-
-//email authentication
-function httpGetAsync(url, callback) {
-    const xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
-            callback(xmlHttp.responseText);
+function executeSendButtonAnimation () {
+    if (processing) return;
+    let reverting = false;
+    processing = true;
+  
+    const endListener = document.createElement('div');
+    endListener.classList.add('send-button-transitionend-listener');
+    sendButton.appendChild(endListener);
+  
+    const layoutTrigger = sendButton.offsetTop;
+    sendButton.classList.add('s--processing');
+  
+    function transitionEndHandler() {
+      if (reverting) return;
+      reverting = true;
+      sendButton.classList.add('s--reverting');
     }
-    xmlHttp.open("GET", url, true);
-    xmlHttp.send(null);
-}
-
-function handleValidationResponse(responseText) {
-   
-    console.log("Response from API:", responseText);
-    const data = JSON.parse(responseText);
-    console.log(data);
-    console.log(data.email);
-    console.log(data.is_valid_format.value);
-}
+  
+    endListener.addEventListener('transitionend', transitionEndHandler);
+  
+    setTimeout(function () {
+      sendButton.removeChild(endListener);
+      sendButton.classList.remove('s--processing', 's--reverting');
+      processing = false;
+      endListener.removeEventListener('transitionend', transitionEndHandler);
+    }, 10000);
+  }
 sendButton.addEventListener('click', () => {
     const emailValue = document.getElementById('email').value;
     const dateValue = document.getElementById('date_time').value;
@@ -448,6 +455,7 @@ sendButton.addEventListener('click', () => {
     }
     if(checkName && checkEmail && checkDate && checkContent){
         if(emailValue === ''){
+            executeSendButtonAnimation();
             fetch('https://backend-apollon.vercel.app/user', {
             method: 'POST',
             headers: {
@@ -465,6 +473,7 @@ sendButton.addEventListener('click', () => {
             .then(response => response.json())
             .then(data =>{
                 if(data.is_valid_format && data.deliverability === "DELIVERABLE"){
+                    executeSendButtonAnimation();
                     fetch('https://backend-apollon.vercel.app/user', {
                     method: 'POST',
                     headers: {
@@ -567,37 +576,6 @@ document.querySelector('#email').addEventListener('blur', ()=>{
         document.querySelector("#email").classList.add('not-empty');
     }
 });
-
-
-
-// sendButton.addEventListener('click', function () {
-//   if (processing) return;
-//   let reverting = false;
-//   processing = true;
-
-//   const endListener = document.createElement('div');
-//   endListener.classList.add('send-button-transitionend-listener');
-//   sendButton.appendChild(endListener);
-
-//   const layoutTrigger = sendButton.offsetTop;
-//   sendButton.classList.add('s--processing');
-
-//   function transitionEndHandler() {
-//     if (reverting) return;
-//     reverting = true;
-//     sendButton.classList.add('s--reverting');
-//   }
-
-//   endListener.addEventListener('transitionend', transitionEndHandler);
-
-//   setTimeout(function () {
-//     sendButton.removeChild(endListener);
-//     sendButton.classList.remove('s--processing', 's--reverting');
-//     processing = false;
-//     endListener.removeEventListener('transitionend', transitionEndHandler);
-//   }, 10000);
-// });
-
 const dateInput = document.getElementById('date_time');
 
 function validateDate() {
@@ -659,28 +637,6 @@ function resetStateOfDate(){
         dotOfDate.classList.remove('invalid');
     }
 }
-// sendButton.addEventListener('click', () => {
-//     const userData = {
-//         username: document.getElementById('name').value,
-//         email: document.getElementById('email').value,
-//         // Thêm các trường dữ liệu khác nếu cần
-//       };
-//     console.log('It works'); 
-//       // Gửi dữ liệu đến backend
-//       fetch('http://localhost:3000/user', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(userData),
-//       })
-//         .then(response => response.json())
-//         .then(data => {
-//           console.log(data); // Xử lý phản hồi từ backend (nếu có)
-//         })
-//         .catch(error => console.error('Error:', error));
-// });
-
 function validateContent(){
     const content = document.querySelector('#letter_content').value.trim();
     if(content.length === 0){
@@ -692,7 +648,6 @@ function validateContent(){
         return true;
     }
 }
-
 window.addEventListener('beforeunload', function (event) {
     if(document.querySelector('#letter_content').value.trim() != ''){
         console.log('hello');
