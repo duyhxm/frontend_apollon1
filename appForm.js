@@ -436,6 +436,8 @@ sendButton.addEventListener('click', () => {
         date: dateValue,
         text: contentValue
     };
+    console.log(dateValue);
+    console.log(userData);
     if(!checkContent){
         document.querySelector('#status_dot__letter').classList.add('invalid');
         document.querySelector('#status_dot__letter_container').classList.add('warn');
