@@ -409,12 +409,12 @@ window.addEventListener('DOMContentLoaded', () => {
     function changeLanguage(e) {
         if (e.id === 'chinese') {
             console.log(`language is chinese`);
-            window.location.href = 'duyhxm.me/cn/index.html';
+            window.location.href = '/cn/index.html';
         } else if (e.id === 'vietnamese') {
-            window.location.href = 'duyhxm.me/vi/index.html';
+            window.location.href = '/vi/index.html';
             console.log(`language is vietnamese`);
         } else if (e.id === 'english') {
-            window.location.href = 'duyhxm.me/index.html';
+            window.location.href = '/index.html';
             console.log(`language is english`);
         }
     }
