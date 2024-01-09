@@ -324,7 +324,6 @@ const $send_button = document.querySelector('.send-button');
             fetch('https://backend-apollon.vercel.app/pdf-file', {
                 method: 'POST',
                 body: formData,
-                mode: 'cors',
               })
                 .then(response => response.json())
                 .then(data => {
@@ -452,7 +451,6 @@ sendButton.addEventListener('click', () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            mode: 'cors',
             body: JSON.stringify(userData),
              })
             .then(response => response.json())
@@ -470,7 +468,6 @@ sendButton.addEventListener('click', () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    mode: 'cors',
                     body: JSON.stringify(userData),
                     })
                     .then(response => response.json())
