@@ -1,0 +1,54 @@
+<svg width="683" height="683" viewBox="0 0 683 683" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="unknown-file" clip-path="url(#clip0_381_3)">
+<g id="g1587">
+<g id="g1589">
+<g id="Clip path group">
+<mask id="mask0_381_3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="683" height="683">
+<g id="clipPath1595">
+<path id="path1593" d="M0 0.00012207H682.667V682.667H0V0.00012207Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_381_3)">
+<g id="g1591">
+<g id="g1597">
+<path id="path1599" d="M470.12 28.7869C464.494 23.1608 456.863 20.0001 448.907 20.0001H131.333C114.765 20.0001 101.333 33.4316 101.333 50.0001V632.667C101.333 649.235 114.765 662.667 131.333 662.667H551.333C567.902 662.667 581.333 649.235 581.333 632.667V152.427C581.333 144.47 578.173 136.839 572.546 131.213L470.12 28.7869Z" stroke="black" stroke-width="40" stroke-miterlimit="10" stroke-linejoin="round"/>
+</g>
+<g id="g1601">
+<path id="path1603" d="M581.333 140H491.333C474.765 140 461.333 126.569 461.333 110V20" stroke="black" stroke-width="40" stroke-miterlimit="10"/>
+</g>
+<g id="g1605">
+<path id="path1607" d="M301.333 180C301.333 157.909 319.243 140 341.333 140C363.424 140 381.333 157.909 381.333 180C381.333 194.805 373.289 207.732 361.333 214.648C348.981 221.793 341.333 235.028 341.333 249.297V280" stroke="black" stroke-width="40" stroke-miterlimit="10"/>
+</g>
+<g id="g1609">
+<path id="path1611" d="M321.333 340H361.333" stroke="black" stroke-width="40" stroke-miterlimit="10"/>
+</g>
+<g id="g1613">
+<path id="path1615" d="M241.333 420H521.333" stroke="black" stroke-width="40" stroke-miterlimit="10"/>
+</g>
+<g id="g1617">
+<path id="path1619" d="M241.333 500H521.333" stroke="black" stroke-width="40" stroke-miterlimit="10"/>
+</g>
+<g id="g1621">
+<path id="path1623" d="M161.333 420H201.333" stroke="black" stroke-width="40" stroke-miterlimit="10"/>
+</g>
+<g id="g1625">
+<path id="path1627" d="M161.333 500H201.333" stroke="black" stroke-width="40" stroke-miterlimit="10" stroke-linejoin="round"/>
+</g>
+<g id="g1629">
+<path id="path1631" d="M241.333 580H521.333" stroke="black" stroke-width="40" stroke-miterlimit="10" stroke-linejoin="round"/>
+</g>
+<g id="g1633">
+<path id="path1635" d="M161.333 580H201.333" stroke="black" stroke-width="40" stroke-miterlimit="10"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_381_3">
+<rect width="682.667" height="682.667" fill="white"/>
+</clipPath>
+</defs>
+</svg>
