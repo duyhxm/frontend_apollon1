@@ -470,7 +470,6 @@ sendButton.addEventListener('click', () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    mode: 'no-cors',
                     body: JSON.stringify(userData),
                     })
                     .then(response => response.json())
@@ -568,11 +567,6 @@ document.querySelector('#email').addEventListener('blur', ()=>{
         document.querySelector("#email").classList.add('not-empty');
     }
 });
-
-
-
-
-
 
 
 
