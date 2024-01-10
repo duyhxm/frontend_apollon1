@@ -474,7 +474,7 @@ sendButton.addEventListener('click', () => {
             .then(data =>{
                 if(data.is_valid_format && data.deliverability === "DELIVERABLE"){
                     executeSendButtonAnimation();
-                    fetch('http://localhost:3000/user', {
+                    fetch('https://backend-apollon.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
