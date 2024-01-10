@@ -666,11 +666,9 @@ window.addEventListener('unload', function (event) {
 });
 
 window.addEventListener('DOMContentLoaded', ()=> {
-    while(true){
         fetch(`https://backend-apollon.vercel.app/check-time`)
             .then(response => response.json())
             .then(data =>{
                 console.log(data);
             });
-    }
 });
