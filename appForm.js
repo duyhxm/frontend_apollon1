@@ -474,7 +474,7 @@ sendButton.addEventListener('click', () => {
             .then(data =>{
                 if(data.is_valid_format && data.deliverability === "DELIVERABLE"){
                     executeSendButtonAnimation();
-                    fetch('https://backend-apollon.vercel.app/user', {
+                    fetch('http://localhost:3000/user', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -662,5 +662,15 @@ window.addEventListener('unload', function (event) {
     if (document.querySelector('#letter_content').value.trim() !== '') {
       event.returnValue = confirmationMessage;
       return confirmationMessage;
+    }
+});
+
+window.addEventListener('DOMContentLoaded', ()=> {
+    while(true){
+        fetch(`https://backend-apollon.vercel.app/check-time`)
+            .then(response => response.json())
+            .then(data =>{
+                console.log(data);
+            });
     }
 });
